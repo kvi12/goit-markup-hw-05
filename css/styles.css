@@ -170,6 +170,7 @@ a {
 .header-telephone-icon,
 .header-mail-icon {
   margin-right: 10px;
+  fill: currentColor;
 }
 /* hero */
 .section-hero {
