@@ -13,6 +13,9 @@
   --header-background-color: #ececec;
   --card-set-gap: 30px;
   --card-border: #eeeeee;
+  --fill-icon: #afb1b8;
+  --time-animations: 250ms;
+  --function-animations: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .container {
   width: 1200px;
@@ -113,7 +116,7 @@ a {
   align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--time-animations) var(--function-animations);
 }
 .site-nav > li:nth-child(2) {
   margin: 0 50px 0;
@@ -219,7 +222,9 @@ a {
   padding: 10px 32px;
   font-weight: 700;
   font-size: 16px;
-  transition: background-color, fill, color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--time-animations) var(--function-animations),
+    fill var(--time-animations) var(--function-animations),
+    color var(--time-animations) var(--function-animations);
 }
 .button :hover {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -346,14 +351,14 @@ a {
 }
 .people-list-item {
   margin-right: 30px;
-  background-color: #fff;
+  background-color: var(--header-color);
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
     0px 2px 1px rgb(0 0 0 / 20%);
 }
 .people-list-item-right {
-  background-color: #fff;
+  background-color: var(--header-color);
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
@@ -396,22 +401,23 @@ a {
   justify-content: center;
   align-items: center;
   background-color: var(--header-color);
-  fill: #afb1b8;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--fill-icon);
+  transition: background-color var(--time-animations) var(--function-animations),
+    color var(--time-animations) var(--function-animations);
 }
 .peoples-soc-link:hover {
   background-color: var(--accent-color);
-  fill: #ffffff;
+  color: var(--footer-logo-color);
 }
 .peoples-soc-link:focus {
   background-color: var(--accent-color);
-  fill: #ffffff;
+  color: var(--footer-logo-color);
 }
 .icon-soc-link {
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: currentColor;
 }
 
 .client-title {
@@ -448,8 +454,9 @@ a {
   border-radius: 4px;
   padding: 6px 21px;
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--time-animations) var(--function-animations),
+    box-shadow var(--time-animations) var(--function-animations),
+    color var(--time-animations) var(--function-animations);
 }
 .button-filter-right {
   font-weight: 500;
@@ -461,8 +468,9 @@ a {
   border-radius: 4px;
   padding: 6px 21px;
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--time-animations) var(--function-animations),
+    box-shadow var(--time-animations) var(--function-animations),
+    color var(--time-animations) var(--function-animations);
 }
 .button-filter:hover,
 .button-filter-right:hover {
@@ -512,29 +520,24 @@ a {
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
-  color: #fff;
+  color: var(--header-color);
   padding: 63px 24px 63px 24px;
   background: rgba(33, 150, 243, 0.9);
   height: 100%;
   transform: translateY(101%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--time-animations) var(--function-animations);
 }
-.card-link:hover .description-text {
-  transform: translateY(0);
-}
+.card-link:hover .description-text,
 .card-link:focus .description-text {
   transform: translateY(0);
 }
+
 .card-link {
   display: block;
-  transition: box-shadow 250ms;
+  transition: box-shadow var(--time-animations) var(--function-animations);
 }
 
-.card-link:hover {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 1px 4px 6px rgba(0, 0, 0, 0.16),
-    0px 4px 4px rgba(0, 0, 0, 0.25), 1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
+.card-link:hover,
 .card-link:focus {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 1px 4px 6px rgba(0, 0, 0, 0.16),
     0px 4px 4px rgba(0, 0, 0, 0.25), 1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -579,11 +582,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #afb1b8;
+  border: 1px solid var(--fill-icon);
   border-radius: 4px;
-  fill: #afb1b8;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: var(--fill-icon);
+  transition: border-color var(--time-animations) var(--function-animations),
+    color var(--time-animations) var(--function-animations);
 }
 .client-icon-link:hover {
   border-color: var(--accent-color);
@@ -611,8 +614,9 @@ a {
   line-height: 24px;
   letter-spacing: 0.03em;
   color: var(--header-color);
-  /* margin-bottom: 9px; */
-  transition: background-color, fill, color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--time-animations) var(--function-animations),
+    fill var(--time-animations) var(--function-animations),
+    color var(--time-animations) var(--function-animations);
 }
 
 .footer-nav-link-address:hover {
@@ -628,8 +632,7 @@ a {
   line-height: 24px;
   letter-spacing: 0.03em;
   color: var(--footer-tel-mail-color);
-  /* margin-bottom: 9px; */
-  transition: background-color, fill, color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--time-animations) var(--function-animations);
 }
 .footer-nav-link-mail:hover {
   color: var(--accent-color);
@@ -643,7 +646,9 @@ a {
   line-height: 24px;
   letter-spacing: 0.03em;
   color: var(--footer-tel-mail-color);
-  transition: background-color, fill, color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--time-animations) var(--function-animations),
+    fill var(--time-animations) var(--function-animations),
+    color var(--time-animations) var(--function-animations);
 }
 .footer-nav-link-tel:hover {
   color: var(--accent-color);
@@ -684,7 +689,7 @@ a {
   line-height: 16px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--main-btn-color);
 }
 .footer-soc-list {
   display: flex;
@@ -702,9 +707,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  fill: var(--footer-logo-color);
+  color: var(--footer-logo-color);
   background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--time-animations) var(--function-animations);
 }
 
 .footer-soc-link:hover {
@@ -721,8 +726,8 @@ a {
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--time-animations) var(--function-animations),
+    visibility var(--time-animations) var(--function-animations);
 }
 
 .modal {
@@ -731,12 +736,12 @@ a {
   left: 50%;
   width: 528px;
   min-height: 581px;
-  background: #ffffff;
+  background: var(--header-color);
   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
     0px 2px 1px rgb(0 0 0 / 20%);
   border-radius: 4px;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--time-animations) var(--function-animations);
   padding-top: 39px;
   padding-right: 40px;
   padding-bottom: 37px;
@@ -779,9 +784,16 @@ a {
   height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  background-color: transparent;
-  margin-bottom: 28px;
-  margin-top: 7px;
+  font-size: 16px;
+  margin-top: 15px;
+  padding: 0 10px 0 40px;
+  transition: 250ms linear border;
+}
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transition: 250ms linear fill;
 }
 .modal-button {
   display: block;
@@ -791,6 +803,24 @@ a {
   font-family: Roboto;
   font-weight: 400;
   font-size: 12px;
+}
+.modal-field {
+  margin-top: 20px;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+.label-modal {
+  display: block;
+  position: absolute;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: #757575;
+  margin-top: -4px;
 }
 .modal-text-area {
   width: 100%;
